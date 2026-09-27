@@ -1,0 +1,775 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Madhushree | CSIT Student Portfolio</title>
+
+    <meta name="description"
+          content="Personal portfolio of Madhushree, a 3rd-semester B.Tech Computer Science and Information Technology student.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.6;
+            background: #f7f9fc;
+            color: #1f2937;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.96);
+            border-bottom: 1px solid #e5e7eb;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            color: #4b5563;
+            transition: 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+
+        /* Hero */
+        .hero {
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+            background:
+                linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #f8fafc 100%);
+        }
+
+        .hero-container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 80px 24px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            margin-bottom: 18px;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.8rem, 7vw, 5rem);
+            line-height: 1.05;
+            margin-bottom: 20px;
+            color: #111827;
+        }
+
+        .hero h1 span {
+            color: #2563eb;
+        }
+
+        .hero p {
+            max-width: 700px;
+            font-size: 1.15rem;
+            color: #4b5563;
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .button-primary {
+            background: #2563eb;
+            color: white;
+        }
+
+        .button-primary:hover {
+            background: #1d4ed8;
+            transform: translateY(-2px);
+        }
+
+        .button-secondary {
+            border: 1px solid #d1d5db;
+            background: white;
+            color: #374151;
+        }
+
+        .button-secondary:hover {
+            border-color: #2563eb;
+            color: #2563eb;
+            transform: translateY(-2px);
+        }
+
+        /* General Sections */
+        section {
+            padding: 80px 24px;
+        }
+
+        .section-container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .section-heading {
+            margin-bottom: 40px;
+        }
+
+        .section-heading h2 {
+            font-size: 2rem;
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .section-heading p {
+            color: #6b7280;
+            max-width: 650px;
+        }
+
+        /* About */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 16px;
+            color: #4b5563;
+            font-size: 1.03rem;
+        }
+
+        .about-card {
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 16px;
+            padding: 28px;
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+            color: #111827;
+        }
+
+        .about-card p {
+            color: #6b7280;
+        }
+
+        /* Learning Journey */
+        .journey {
+            background: #f7f9fc;
+        }
+
+        .timeline {
+            display: grid;
+            gap: 20px;
+        }
+
+        .timeline-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 14px;
+            padding: 24px;
+            transition: 0.2s;
+        }
+
+        .timeline-item:hover {
+            border-color: #bfdbfe;
+            transform: translateY(-3px);
+        }
+
+        .activity-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 34px;
+            height: 34px;
+            margin-bottom: 14px;
+            border-radius: 50%;
+            background: #dbeafe;
+            color: #1d4ed8;
+            font-weight: 700;
+        }
+
+        .timeline-item h3 {
+            font-size: 1.15rem;
+            margin-bottom: 8px;
+            color: #111827;
+        }
+
+        .timeline-item p {
+            color: #6b7280;
+        }
+
+        .leetcode-card {
+            margin-top: 30px;
+            background: white;
+            border: 1px solid #dbeafe;
+            border-radius: 14px;
+            padding: 26px;
+        }
+
+        .leetcode-card h3 {
+            color: #111827;
+            margin-bottom: 8px;
+        }
+
+        .leetcode-card p {
+            color: #6b7280;
+        }
+
+        .leetcode-link {
+            display: inline-block;
+            margin-top: 12px;
+            color: #2563eb;
+            font-weight: 600;
+        }
+
+        .leetcode-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Skills */
+        .skills {
+            background: white;
+        }
+
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .skill {
+            padding: 10px 16px;
+            background: #f8fafc;
+            border: 1px solid #e5e7eb;
+            border-radius: 999px;
+            color: #374151;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+
+        .skill:hover {
+            border-color: #93c5fd;
+            background: #eff6ff;
+            color: #1d4ed8;
+        }
+
+        /* Career */
+        .career {
+            background: #eff6ff;
+        }
+
+        .career-card {
+            max-width: 850px;
+            background: white;
+            border: 1px solid #dbeafe;
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .career-card p {
+            color: #4b5563;
+            font-size: 1.05rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: #111827;
+            color: white;
+        }
+
+        .contact .section-heading h2 {
+            color: white;
+        }
+
+        .contact .section-heading p {
+            color: #9ca3af;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .contact-link {
+            display: inline-block;
+            padding: 12px 18px;
+            border: 1px solid #374151;
+            border-radius: 8px;
+            color: #e5e7eb;
+            transition: 0.2s;
+        }
+
+        .contact-link:hover {
+            background: #1f2937;
+            border-color: #60a5fa;
+            color: #93c5fd;
+        }
+
+        /* Footer */
+        footer {
+            padding: 22px 24px;
+            text-align: center;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                gap: 14px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                min-height: auto;
+            }
+
+            .hero-container {
+                padding: 70px 24px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .button {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav-links {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="#home" class="logo">Madhushree</a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Learning Journey</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#career">Goals</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <!-- Hero -->
+    <header class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    3rd-Semester B.Tech CSIT Student
+                </span>
+
+                <h1>
+                    Hi, I'm <span>Madhushree.</span>
+                </h1>
+
+                <p>
+                    I am a Computer Science and Information Technology student
+                    interested in software development, programming, problem
+                    solving, and building practical projects while continuously
+                    strengthening my technical skills.
+                </p>
+
+                <div class="hero-buttons">
+                    <a href="#journey" class="button button-primary">
+                        Explore My Journey
+                    </a>
+
+                    <a href="#contact" class="button button-secondary">
+                        Get in Touch
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <!-- About -->
+    <section class="about" id="about">
+        <div class="section-container">
+
+            <div class="section-heading">
+                <h2>About Me</h2>
+                <p>
+                    A student-focused journey of learning, practicing, and building.
+                </p>
+            </div>
+
+            <div class="about-content">
+
+                <div class="about-text">
+
+                    <p>
+                        My name is Madhushree, and I am a 3rd-semester
+                        B.Tech Computer Science and Information Technology
+                        (CSIT) student.
+                    </p>
+
+                    <p>
+                        I am developing my programming and software-development
+                        skills through practical learning activities, programming
+                        practice, GitHub workflows, and project-based learning.
+                    </p>
+
+                    <p>
+                        I am interested in software development, programming,
+                        problem solving, and learning how different tools can
+                        be used to build practical solutions.
+                    </p>
+
+                </div>
+
+                <div class="about-card">
+                    <h3>What I'm Learning</h3>
+
+                    <p>
+                        Programming fundamentals, software-development tools,
+                        version control, collaboration workflows, web basics,
+                        and problem solving through coding practice.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Learning Journey -->
+    <section class="journey" id="journey">
+        <div class="section-container">
+
+            <div class="section-heading">
+                <h2>Learning Journey</h2>
+
+                <p>
+                    Practical activities that are helping me build a foundation
+                    in programming, development tools, and GitHub workflows.
+                </p>
+            </div>
+
+
+            <div class="timeline">
+
+                <!-- Activity 1 -->
+                <article class="timeline-item">
+
+                    <span class="activity-number">1</span>
+
+                    <h3>
+                        C/C++ Development Environment Setup
+                    </h3>
+
+                    <p>
+                        Set up a C/C++ development environment using
+                        Visual Studio Code, the Microsoft C/C++ extension,
+                        and GCC/MSYS2/MinGW-w64. The activity also included
+                        creating and running a Hello World program.
+                    </p>
+
+                </article>
+
+
+                <!-- Activity 2 -->
+                <article class="timeline-item">
+
+                    <span class="activity-number">2</span>
+
+                    <h3>
+                        VS Code Extension Tour
+                    </h3>
+
+                    <p>
+                        Explored useful Visual Studio Code extensions including
+                        Python, Java Extension Pack, Prettier, GitLens,
+                        and Live Share.
+                    </p>
+
+                </article>
+
+
+                <!-- Activity 3 -->
+                <article class="timeline-item">
+
+                    <span class="activity-number">3</span>
+
+                    <h3>
+                        GitHub Fundamentals
+                    </h3>
+
+                    <p>
+                        Practiced GitHub fundamentals by working with a public
+                        repository, README, commits, and the GitHub workflow.
+                    </p>
+
+                </article>
+
+
+                <!-- Activity 4 -->
+                <article class="timeline-item">
+
+                    <span class="activity-number">4</span>
+
+                    <h3>
+                        Branches, Pull Requests &amp; GitHub Pages
+                    </h3>
+
+                    <p>
+                        Learned about GitHub branches, pull requests, merging,
+                        and GitHub Pages as part of understanding GitHub
+                        development and collaboration workflows.
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <!-- LeetCode - Separate from Activities -->
+            <div class="leetcode-card">
+
+                <h3>
+                    LeetCode Solutions Repository
+                </h3>
+
+                <p>
+                    I practice problem solving through LeetCode and maintain
+                    a repository containing my LeetCode solutions as part of
+                    my programming practice.
+                </p>
+
+                <a
+                    class="leetcode-link"
+                    href="https://github.com/madhushreeb1016/leetcode-solutions"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    View LeetCode Solutions →
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Skills -->
+    <section class="skills" id="skills">
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>Skills</h2>
+
+                <p>
+                    Technologies, tools, and skills I am developing through
+                    coursework and practical learning.
+                </p>
+
+            </div>
+
+
+            <div class="skills-grid">
+
+                <span class="skill">C</span>
+                <span class="skill">C++</span>
+                <span class="skill">Python</span>
+                <span class="skill">DBMS</span>
+                <span class="skill">Object-oriented Programming</span>
+                <span class="skill">HTML</span>
+                <span class="skill">Git</span>
+                <span class="skill">GitHub</span>
+                <span class="skill">Visual Studio Code</span>
+                <span class="skill">GitHub Collaboration Workflows</span>
+                <span class="skill">Problem Solving</span>
+                <span class="skill">Portfolio Building</span>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Career / Learning Goal -->
+    <section class="career" id="career">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>Career &amp; Learning Goal</h2>
+
+                <p>
+                    Focused on continuous learning and practical development.
+                </p>
+
+            </div>
+
+
+            <div class="career-card">
+
+                <p>
+                    My goal is to strengthen my software development and
+                    problem-solving skills through regular programming practice,
+                    practical projects, Git and GitHub workflows, and continued
+                    learning. I want to keep developing my technical foundation
+                    through hands-on learning and programming practice.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+
+        <div class="section-container">
+
+            <div class="section-heading">
+
+                <h2>Contact</h2>
+
+                <p>
+                    Connect with me through my GitHub and LinkedIn profiles.
+                </p>
+
+            </div>
+
+
+            <div class="contact-links">
+
+                <a
+                    class="contact-link"
+                    href="https://github.com/madhushreeb1016"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    GitHub
+                </a>
+
+                <a
+                    class="contact-link"
+                    href="https://www.linkedin.com/in/madhu-shree-gowda"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    LinkedIn
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 Madhushree. Student Developer Portfolio.
+        </p>
+
+    </footer>
+
+</body>
+</html>
+```
